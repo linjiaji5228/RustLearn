@@ -1,0 +1,12 @@
+
+
+https://github.com/linjiaji5228/Learn-Github.git
+
+
+1.修改镜像：https://www.cnblogs.com/zlslch/p/6860229.html
+
+安装git并且链接github：
+1.出错时应该将~/.ssh文件删除：https://blog.csdn.net/xiaoxinxiaoyi/article/details/60965068
+2.确保ssh-agent启动：https://blog.csdn.net/datase/article/details/78120587
+3.确保ssh添加到ssh-agent：https://blog.csdn.net/xu1129005165/article/details/78502289
+4.上传代码到github：https://www.jianshu.com/p/e61c4ceec96c
