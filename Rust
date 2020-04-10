@@ -16,7 +16,7 @@ P5 函数
 1.蛇形命名法：常量大写字母， 类首字母大写，利用_符号
 2.传入参数的函数 fn fun（a：i32, b: u32）;函数的参数类型不能推导必须显示表示
 3.函数返回值fn fun（a：i32, b: u32)-> i32; 返回用return a+b； 或者 a+b 去掉末尾的分号
-4.let x =（let y=1）；语句不返回值，表达式会计算一些值 let y ={ let =1； x+1}；注意x+1后面不能加分号
+4.let x =（let y=1）；语句不返回值，表达式会计算一些值 let y ={ let x=1； x+1}；注意x+1后面不能加分号
 5.//进行注释
 
 P7.控制流
@@ -138,7 +138,7 @@ P16.vecor
 1.创建 let v: Vec<i32> = Vec::new(); 不可变， 可变定义为 let mut v: Vec <int> = Vec::new();
 2.创建包含初始值的vector: let x =vec![1,2,3];
 3.索引的方式获取vector的值: let one: &i32 = &x[0]; println!("one ={}",one)或者println!("one={}",*one)
-4.读取或者用get（）:
+4.读取或者用get（）://下标从0开始计算
 	match x.get(2){
 		Some(value)=> println!("value={}",value),
 		_=>println!("None"),
@@ -666,6 +666,7 @@ fn main(){
 
 
 P10.对任何实现了特定trait的类型有条件地实现trait
+
 trait GetName{
 	fn get_name(&self) -> &String;
 }
@@ -839,7 +840,7 @@ impl <T> Cacher<T>
 		match self.value{
 			Some(v)=>v,
 			None =>{
-			let v = (self.calculation)(ann);    //为什么是逗号
+			let v = (self.calculation)(ann);    
 			self.value = Some(v);               // 不能用&self？？？？？
 			v
 			}
@@ -870,6 +871,7 @@ fn main(){
 
 P21.迭代器
 1.迭代器是惰性的，在调用方法使用迭代器之前，不会有任何效果
+
 fn main(){
 	
 	let v1 = vec![1,2,3];
@@ -929,6 +931,7 @@ fn main(){
 	let v1_iter = v1.into_iter();                                 //为什么用into_iter()不用iter()??????
 	let v2:Vec<_> = v1_iter.filter(|x| *x>5).collect();           //调用迭代适配器filter(),为什么要加*
 	println!("{:?}",v2);
+
 }
 
 P21自定义迭代器
@@ -1273,7 +1276,7 @@ fn main(){
 	}
 	println!("astrong={},a_weak={}",Rc::strong_count(&a),Rc::weak_count(&a));
 
-	println!("a.trail={:?}",a.tail());                              //此时如果打印则会堆栈溢出
+	println!("a.trail={:?}",a.tail());                             
 	
 }
 
@@ -1324,13 +1327,13 @@ fn main(){
 	handle.join().unwrap();	                               //执行完handle才会接着执行下面的程序
 
 	for i in 1..6 {
-		println!("main thread      {}",i);
+		println!("main thread  {}",i);
 		thread::sleep(Duration::from_millis(1));
 	}
 
 }
 
-ctrl+s：阻断想终端输出
+ctrl+s：阻断向终端输出
 ctrl+q：恢复向终端输出
 
 P45.线程与move闭包
@@ -1444,7 +1447,7 @@ fn main(){
 	});
 
 
-		thread::spawn(move||{
+	thread::spawn(move||{
 		let vals = vec![
 		String::from("A"),
 		String::from("B"),
